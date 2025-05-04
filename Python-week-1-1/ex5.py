@@ -1,0 +1,15 @@
+print(" *** ID card ****")
+student_ID, firstname ,nickname = input('Enter your student_ID firstname nickname : ').split()
+# print(f"Student ID: {student_ID}")
+# print(f"Firstname: {firstname}")    
+# print(f"Nickname: {nickname}")
+# if len(student_ID) == 8:
+
+print("-"*34)
+print('| »-(¯`·.·´¯)->CARD<-(¯`·.·´¯)-« |')
+print(f'| {" ":^30} |')
+print(f'| {firstname:<15}{student_ID:>15} |')
+print(f'| {nickname:^30} |')
+print(f'| {" ":^30} |')
+print(f'| {"(-.-)Zzz....":<15}{" (╯︵╰,)":>14} |')
+print("-"*34)
