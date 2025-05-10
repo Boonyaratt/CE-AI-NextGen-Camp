@@ -1,6 +1,6 @@
 def print_pyramid_v2(height):
     # Loop for each level of the pyramid
-    for i in range(1, height + 1):
+    for i in range(1, height):
         # Print leading spaces
         print(' ' * (height - i), end='')
 
@@ -8,7 +8,7 @@ def print_pyramid_v2(height):
         print('/' + '.' * (2 * i - 2) + '\\')
 
     # Print the base of the pyramid
-    print('/' + '_' * (2 * height) + '\\')
+    print('/' + '_' * (2*height-2) + '\\')
 
     print("===== End of program =====")
 
