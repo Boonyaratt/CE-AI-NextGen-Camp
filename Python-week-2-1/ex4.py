@@ -14,9 +14,9 @@ else:
         factors.append(str(n))
 
     if num == 1:
-        print(f"{original_num} is a power of {n}.")
+        print(f"{original_num} is the power of {n}.")
         print(f"{original_num} = {'*'.join(factors)}")
     else:
-        print(f"{original_num} is NOT a power of {n}")
+        print(f"{original_num} is NOT the power of {n}.")
 
 print("===== End of program =====")

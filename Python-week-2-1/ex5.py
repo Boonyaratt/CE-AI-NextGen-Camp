@@ -1,8 +1,9 @@
-import math
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
 
 def line_equation_verbose(x1, y1, x2, y2):
-    print(" *** Linear Formula ***")
-    print(f"Enter x1 y1 x2 y2: {x1} {y1} {x2} {y2}")
     print(f"({x1},{y1}) ==> ({x2},{y2})")
 
     # คำนวณค่าดิบ A, B, C
@@ -11,16 +12,23 @@ def line_equation_verbose(x1, y1, x2, y2):
     C = (x2 * y1) - (x1 * y2)
 
     # f1: แสดงแบบตรง ๆ
-    print(f"f1 ==> {A:+d}x + {B:+d}y + {C:+d} = 0")
+    print(f"f1 ==> {A}x + {B}y + {C} = 0")
+
 
     # f2: ลดรูปด้วย gcd
-    gcd = math.gcd(math.gcd(abs(A), abs(B)), abs(C))
+    gcd_all = gcd(gcd(abs(A), abs(B)), abs(C))
     A2, B2, C2 = A, B, C
-    if gcd != 0:
-        A2 //= gcd
-        B2 //= gcd
-        C2 //= gcd
-    print(f"f2 ==> {A2:+d}x + {B2:+d}y + {C2:+d} = 0")
+    if gcd_all != 0:
+        A2 //= gcd_all
+        B2 //= gcd_all
+        C2 //= gcd_all
+    print(f"f2 ==> {A2}x + {B2}y + {C2} = 0")
+
+    # ปรับให้ A2 เป็นบวก (เพื่อไม่ให้เริ่มต้นสมการด้วยลบ)
+    if A2 < 0:
+        A2 *= -1
+        B2 *= -1
+        C2 *= -1
 
     # f3: ไม่แสดงเลข 1
     def term(value, var):
@@ -42,14 +50,12 @@ def line_equation_verbose(x1, y1, x2, y2):
 
     result = result.strip()
 
-    # ลบเครื่องหมาย "+" ที่ไม่จำเป็น
     if result.startswith("+"):
         result = result[2:]
 
-    # แสดงผล f3 ในรูปแบบที่ต้องการ
     print(f"f3 ==> {result} = 0")
     print("===== End of program =====")
-
-# ===== เรียกใช้ =====
+    
+print(" *** Linear Formula ***")
 x1, y1, x2, y2 = [int(i) for i in input("Enter x1 y1 x2 y2: ").split()]
 line_equation_verbose(x1, y1, x2, y2)
